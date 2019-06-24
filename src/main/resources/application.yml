@@ -1,0 +1,4 @@
+application:
+  apiKey: "SOZK9MSKXGM18FN2"
+  endpointTemplate: "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=%s&to_currency=%s&apikey=%s"
+

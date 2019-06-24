@@ -1,0 +1,16 @@
+.DS_Store
+/dist
+/ideaSDK
+out/
+/tmp
+.gradle/
+build/
+!**/src/**/build
+!**/test/**/build
+*.iml
+!**/testData/**/*.iml
+.idea
+kotlin-ultimate/
+libraries/tools/kotlin-test-nodejs-runner/lib/
+docker/server_files
+*.db

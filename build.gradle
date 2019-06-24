@@ -1,0 +1,67 @@
+import static org.gradle.api.JavaVersion.*
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$SPRING_BOOT_VERSION"
+    }
+}
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+    id 'eclipse'
+    id "io.freefair.lombok" version "3.6.6"
+}
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    mavenLocal()
+}
+
+sourceCompatibility = VERSION_11
+targetCompatibility = VERSION_11
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.h2database:h2'
+    implementation 'ch.qos.logback:logback-classic'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.yaml:snakeyaml'
+    testImplementation 'junit:junit'
+}
+
+application {
+    mainClassName = 'com.bawer.tasks.gamesys.Application'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
